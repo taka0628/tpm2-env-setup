@@ -2,6 +2,11 @@ CURRENT_PATH := $(shell pwd)
 GET_RANDOM_FILE := "GetRandom.sh"
 
 install:
+	@echo "Build a TPM environment (yes/no)"
+	@read -p "->" ans;\
+if [ "$$ans" != yes ]; then  \
+      exit 1;\
+fi
 	chmod u+x $(GET_RANDOM_FILE)
 	make install_dependencies
 	make install_tss
@@ -52,4 +57,9 @@ install_tools:
 	sudo make install
 
 test:
+	@echo "Build a TPM environment (yes/no)"
+	@read -p "->" ans;\
+if [ "$$ans" != yes ]; then  \
+      exit 1;\
+fi
 	echo $(CURRENT_PATH)
