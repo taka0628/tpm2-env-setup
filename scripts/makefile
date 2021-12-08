@@ -1,6 +1,8 @@
 CURRENT_PATH := $(shell pwd)
+GET_RANDOM_FILE := "GetRandom.sh"
 
 install:
+	chmod u+x $(GET_RANDOM_FILE)
 	make install_dependencies
 	make install_tss
 	make install_tools

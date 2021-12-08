@@ -35,9 +35,10 @@ bool CmdCall::GetRandom(const int byte)
     assert(byte > 0);
     FILE *fp;
     stringstream cmd_terminal;
-    cmd_terminal << "gnome-terminal --tab --active -x bash -c ' cd ../scripts; ";
-    cmd_terminal << " ./GetRandom.sh";
-    cmd_terminal << " bash'";
+    cmd_terminal << "gnome-terminal --active -x bash -c ' cd ../scripts; ";
+    cmd_terminal << " ./GetRandom.sh ";
+    cmd_terminal << byte;
+    cmd_terminal << "; '";
     if ((fp = popen(cmd_terminal.str().c_str(), "r")) == NULL)
     {
         ERROR("can't open the console");

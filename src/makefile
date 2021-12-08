@@ -1,6 +1,6 @@
 CXX = g++
 
-TARGET	= main.out
+TARGET	= test.out
 
 SRCS	= *.cpp
 

@@ -13,8 +13,6 @@ class CmdCall
 {
 private:
     CmdCall(const CmdCall &);
-    const std::string cmd_env_setup_ = "make install";
-    const std::string cmd_get_random_ = "GetRandom.sh";
 
 public:
     CmdCall();
