@@ -13,16 +13,14 @@ bool CmdCall::MakeEnvSetup()
     // FILE *fp;
     stringstream cmd_terminal;
     cmd_terminal << "gnome-terminal --tab --active -x bash -c ' cd ../scripts; ";
-    if (DEBUG)
-    {
+    if (DEBUG) {
         cmd_terminal << " make test; ";
-    }else{
+    } else {
         cmd_terminal << " make install; ";
     }
     cmd_terminal << " bash'";
     unique_ptr<FILE> fp(popen(cmd_terminal.str().c_str(), "r"));
-    if (fp == NULL)
-    {
+    if (fp == NULL) {
         ERROR("can't open the console");
         return false;
     }
@@ -40,8 +38,7 @@ bool CmdCall::GetRandom(const int byte)
     cmd_terminal << byte;
     cmd_terminal << "; '";
     unique_ptr<FILE> fp(popen(cmd_terminal.str().c_str(), "r"));
-    if (fp == NULL)
-    {
+    if (fp == NULL) {
         ERROR("can't open the console");
         return false;
     }
