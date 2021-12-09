@@ -19,7 +19,25 @@
 
 # 実行方法
 
+## 環境構築
+
+### 実行ファイルへ移動し実行
 ```
 cd build
-./qt_src
+./tpm-setup
 ```
+
+###  "TPM2 Env Setup"を選択
+![mainwindow](image/tpm_mainwindow.png)
+
+### 開いた端末でyesを入力
+![confirm](image/tpm_envSetup.png)
+
+---
+## TPMへアクセス確認
+
+### TPM2 Get Randomを選択
+* 取得する乱数のバイト数を選択可能
+* 上限は32Byte
+
+![mainwindow](image/tpm_mainwindow.png)
