@@ -62,7 +62,6 @@ public:
         spinBox_random_byte = new QSpinBox(horizontalLayoutWidget);
         spinBox_random_byte->setObjectName(QStringLiteral("spinBox_random_byte"));
         spinBox_random_byte->setMinimum(1);
-        spinBox_random_byte->setMaximum(32);
         spinBox_random_byte->setValue(4);
 
         horizontalLayout->addWidget(spinBox_random_byte);
