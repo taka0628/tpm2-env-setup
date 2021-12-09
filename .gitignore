@@ -2,4 +2,4 @@
 .qmake.stash
 *.pro.user
 test.out
-.github/*
+# .github/*
