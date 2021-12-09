@@ -52,12 +52,8 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../qt_src/main.cpp \
 		../qt_src/mainwindow.cpp \
-		../qt_src/main.cpp \
-		../qt_src/mainwindow.cpp \
 		../src/cmd_call.cpp moc_mainwindow.cpp
 OBJECTS       = main.o \
-		mainwindow.o \
-		main.o \
 		mainwindow.o \
 		cmd_call.o \
 		moc_mainwindow.o
@@ -114,7 +110,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
-		../qt_src/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -135,10 +130,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		../qt_src/qt_src.pro ../qt_src/mainwindow.h \
-		../qt_src/mainwindow.h \
 		../src/cmd_call.hpp ../qt_src/main.cpp \
-		../qt_src/mainwindow.cpp \
-		../qt_src/main.cpp \
 		../qt_src/mainwindow.cpp \
 		../src/cmd_call.cpp
 QMAKE_TARGET  = qt_src
@@ -205,7 +197,6 @@ Makefile: ../qt_src/qt_src.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -283,7 +274,6 @@ Makefile: ../qt_src/qt_src.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -322,8 +312,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../qt_src/mainwindow.h ../qt_src/mainwindow.h ../src/cmd_call.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../qt_src/main.cpp ../qt_src/mainwindow.cpp ../qt_src/main.cpp ../qt_src/mainwindow.cpp ../src/cmd_call.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../qt_src/mainwindow.h ../src/cmd_call.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../qt_src/main.cpp ../qt_src/mainwindow.cpp ../src/cmd_call.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../qt_src/mainwindow.ui $(DISTDIR)/
 
 
@@ -356,20 +346,14 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	clang++ -pipe -g -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_mainwindow.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp
 moc_mainwindow.cpp: ../src/cmd_call.hpp \
 		../qt_src/mainwindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/taka/git/tpm2-env-setup/qt_src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../qt_src/mainwindow.h -o moc_mainwindow.cpp
-
-moc_mainwindow.cpp: ../src/cmd_call.hpp \
-		../qt_src/mainwindow.h \
-		moc_predefs.h \
-		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/taka/git/tpm2-env-setup/qt_src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../qt_src/mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/taka/git/tpm2-env-setup/qt_src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7.5.0 -I/usr/include/x86_64-linux-gnu/c++/7.5.0 -I/usr/include/c++/7.5.0/backward -I/usr/include/clang/6.0.0/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../qt_src/mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -389,15 +373,6 @@ compiler_lex_clean:
 compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
-
-main.o: ../qt_src/main.cpp ../qt_src/mainwindow.h \
-		../src/cmd_call.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../qt_src/main.cpp
-
-mainwindow.o: ../qt_src/mainwindow.cpp ../qt_src/mainwindow.h \
-		../src/cmd_call.hpp \
-		ui_mainwindow.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../qt_src/mainwindow.cpp
 
 main.o: ../qt_src/main.cpp ../qt_src/mainwindow.h \
 		../src/cmd_call.hpp

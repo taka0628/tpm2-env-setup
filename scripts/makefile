@@ -40,7 +40,8 @@ install_dependencies:
 install_tss:
 	@echo [install TPM2-TSS]
 	sleep 1
-	git clone https://github.com/tpm2-software/tpm2-tss.git
+	rm -rf tpm2-tss
+	git clone https://github.com/tpm2-software/tpm2-tss.git >/dev/null
 	cd tpm2-tss; \
 	./bootstrap; \
 	./configure --prefix=/usr; \
@@ -50,6 +51,7 @@ install_tss:
 install_tools:
 	@echo [install TPM2-tools]
 	sleep 1
+	rm -rf tpm2-tools
 	git clone https://github.com/tpm2-software/tpm2-tools.git
 	cd tpm2-tools;\
 	./bootstrap;\
