@@ -2,7 +2,7 @@
 
 using namespace std;
 
-constexpr bool DEBUG = true;
+constexpr bool DEBUG = false;
 
 CmdCall::CmdCall() {}
 
