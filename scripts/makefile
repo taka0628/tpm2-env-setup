@@ -13,7 +13,7 @@ fi
 	make install_tools
 
 install_dependencies:
-	@echco [install dependencies]
+	@echo [install dependencies]
 	sudo apt update 
 	sudo apt install \
 	autoconf \
@@ -38,22 +38,23 @@ install_dependencies:
 	python-yaml
 	
 install_tss:
-	@echco [install TSS]
-	mkdir git && cd git
+	@echo [install TPM2-TSS]
+	sleep 1
 	git clone https://github.com/tpm2-software/tpm2-tss.git
-	cd tpm2-tss
-	./bootstrap
-	./configure --prefix=/usr
-	make
-	sudo make install
+	cd tpm2-tss; \
+	./bootstrap; \
+	./configure --prefix=/usr; \
+	make; \
+	sudo make install 
 
 install_tools:
-	cd $(CURRENT_PATH) && cd git
+	@echo [install TPM2-tools]
+	sleep 1
 	git clone https://github.com/tpm2-software/tpm2-tools.git
-	cd tpm2-tools
-	./bootstrap
-	./configure --prefix=/usr
-	make
+	cd tpm2-tools;\
+	./bootstrap;\
+	./configure --prefix=/usr;\
+	make;\
 	sudo make install
 
 test:
