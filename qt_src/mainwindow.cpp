@@ -13,17 +13,20 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-bool isSetupClicked = false;
-bool isGetRandomClicked = false;
-
+using namespace std;
 
 void MainWindow::on_pushButton_envSetup_clicked()
 {
-    if(isSetupClicked == true){
-        return;
-    }
-    isSetupClicked = true;
+    cout << "env setup start" << endl;
     CmdCall cmd;
     cmd.MakeEnvSetup();
-    isSetupClicked = false;
+}
+
+void MainWindow::on_pushButton_getRandom_clicked()
+{
+    int random_byte = ui->spinBox_random_byte->value();
+    assert(random_byte > 0);
+
+    CmdCall cmd;
+    cmd.GetRandom(random_byte);
 }

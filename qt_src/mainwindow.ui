@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>281</width>
-    <height>152</height>
+    <width>283</width>
+    <height>128</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,23 +17,19 @@
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="verticalLayoutWidget">
+   <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
-      <width>261</width>
-      <height>101</height>
+      <y>60</y>
+      <width>258</width>
+      <height>28</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QPushButton" name="pushButton_envSetup">
-       <property name="text">
-        <string>TPM2 Env Setup</string>
-       </property>
-      </widget>
-     </item>
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,0,0">
+     <property name="spacing">
+      <number>3</number>
+     </property>
      <item>
       <widget class="QPushButton" name="pushButton_getRandom">
        <property name="text">
@@ -41,7 +37,40 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QSpinBox" name="spinBox_random_byte">
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="value">
+        <number>4</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_byte">
+       <property name="text">
+        <string>Byte</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
     </layout>
+   </widget>
+   <widget class="QPushButton" name="pushButton_envSetup">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>261</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TPM2 Env Setup</string>
+    </property>
    </widget>
   </widget>
   <widget class="QToolBar" name="mainToolBar">

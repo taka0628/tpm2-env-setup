@@ -1,3 +1,4 @@
 *.o
 .qmake.stash
 *.pro.user
+test.out

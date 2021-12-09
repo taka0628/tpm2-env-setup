@@ -4,6 +4,8 @@
 #include <string>
 #include <cassert>
 #include <sstream>
+#include <memory>
+#include <iostream>
 
 
 #define ERROR(comment) \

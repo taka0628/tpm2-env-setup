@@ -10,7 +10,7 @@ CmdCall::~CmdCall() {}
 
 bool CmdCall::MakeEnvSetup()
 {
-    FILE *fp;
+    // FILE *fp;
     stringstream cmd_terminal;
     cmd_terminal << "gnome-terminal --tab --active -x bash -c ' cd ../scripts; ";
     if (DEBUG)
@@ -20,12 +20,13 @@ bool CmdCall::MakeEnvSetup()
         cmd_terminal << " make install; ";
     }
     cmd_terminal << " bash'";
-    if ((fp = popen(cmd_terminal.str().c_str(), "r")) == NULL)
+    unique_ptr<FILE> fp(popen(cmd_terminal.str().c_str(), "r"));
+    if (fp == NULL)
     {
         ERROR("can't open the console");
         return false;
     }
-    pclose(fp);
+    fp.release();
 
     return true;
 }
@@ -33,18 +34,18 @@ bool CmdCall::MakeEnvSetup()
 bool CmdCall::GetRandom(const int byte)
 {
     assert(byte > 0);
-    FILE *fp;
     stringstream cmd_terminal;
     cmd_terminal << "gnome-terminal --active -x bash -c ' cd ../scripts; ";
     cmd_terminal << " ./GetRandom.sh ";
     cmd_terminal << byte;
     cmd_terminal << "; '";
-    if ((fp = popen(cmd_terminal.str().c_str(), "r")) == NULL)
+    unique_ptr<FILE> fp(popen(cmd_terminal.str().c_str(), "r"));
+    if (fp == NULL)
     {
         ERROR("can't open the console");
         return false;
     }
-    pclose(fp);
+    fp.release();
 
     return true;
 }
