@@ -4,9 +4,9 @@ using namespace std;
 
 constexpr bool DEBUG = false;
 
-CmdCall::CmdCall() {}
+CmdCall::CmdCall() { }
 
-CmdCall::~CmdCall() {}
+CmdCall::~CmdCall() { }
 
 bool CmdCall::MakeEnvSetup()
 {
@@ -19,12 +19,11 @@ bool CmdCall::MakeEnvSetup()
         cmd_terminal << " make install; ";
     }
     cmd_terminal << " bash'";
-    unique_ptr<FILE> fp(popen(cmd_terminal.str().c_str(), "r"));
+    unique_ptr<FILE, decltype(&fclose)> fp(popen(cmd_terminal.str().c_str(), "r"), fclose);
     if (fp == NULL) {
         ERROR("can't open the console");
         return false;
     }
-    fp.release();
 
     return true;
 }
@@ -37,12 +36,11 @@ bool CmdCall::GetRandom(const int byte)
     cmd_terminal << " ./GetRandom.sh ";
     cmd_terminal << byte;
     cmd_terminal << "; '";
-    unique_ptr<FILE> fp(popen(cmd_terminal.str().c_str(), "r"));
+    unique_ptr<FILE, decltype(&fclose)> fp(popen(cmd_terminal.str().c_str(), "r"), fclose);
     if (fp == NULL) {
         ERROR("can't open the console");
         return false;
     }
-    fp.release();
 
     return true;
 }
