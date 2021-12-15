@@ -2,4 +2,6 @@ BasedOnStyle: WebKit
 IndentWidth: 4
 Language: Cpp
 Standard: Auto
+AlignConsecutiveAssignments: true
+
 # UseCRLF: false

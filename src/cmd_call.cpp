@@ -4,9 +4,9 @@ using namespace std;
 
 constexpr bool DEBUG = false;
 
-CmdCall::CmdCall() {}
+CmdCall::CmdCall() { }
 
-CmdCall::~CmdCall() {}
+CmdCall::~CmdCall() { }
 
 bool CmdCall::MakeEnvSetup()
 {
