@@ -3,5 +3,6 @@ IndentWidth: 4
 Language: Cpp
 Standard: Auto
 AlignConsecutiveAssignments: true
+AlignTrailingComments: true
 
 # UseCRLF: false
