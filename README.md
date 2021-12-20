@@ -79,6 +79,10 @@ cd build
 
 ![mainwindow](image/tpm_mainwindow.png)
 
+### 乱数の取得に成功すると以下の画面が表示されます
+
+![getRandom](image/tpm_getRandom.png)
+
 ## 謝辞
 本プログラムの作成にあたり、Trusted Computing Group (TCG)の方々から全面的なサポートをしていただきました。
 ここに感謝いたします。
@@ -162,6 +166,11 @@ cd build
 * (Maximum lengtyh is 32bytes)
 
 ![mainwindow](image/tpm_mainwindow.png)
+
+### If the random number is successfully obtained, the following screen will be displayed
+
+![getRandom](image/tpm_getRandom.png)
+
 
 ## Special Thanks
 I appreciate for such challenge opportunity to study & develop trustworthy features based on Global Standard Security Chip; TPM, and several supports from Trusted Computing Group (TCG) which allow me to focus on this challenge without any difficulty.
