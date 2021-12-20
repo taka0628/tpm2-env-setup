@@ -7,14 +7,22 @@
 
 ## TPMとは何か
 * Trusted Platform Module (TPM）はマザーボード上に存在する部品です
-* 暗号計算やハッシュ計算、鍵管理など様々なセキュリ的機能を利用できます
+* 暗号計算やハッシュ計算、鍵管理など様々なセキュリ機能を利用できます
+
+### よりTPMについて知りたい方へ
+  * A Practical Guide to TPM 2.0” by Will Arthur, David Challener, Kenneth Goldman
+  * https://link.springer.com/book/10.1007/978-1-4302-6584-9
 
 ## ツールの提供する機能
 * TPM2.0の環境構築
   * tpm2-tssとtpm2-toolsを使用して環境構築を行います
     * tpm2-tss: https://github.com/tpm2-software/tpm2-tss
     * tpm2-tools: https://github.com/tpm2-software/tpm2-tools
-  * 使用ライブラリ
+* TPMを用いた乱数の生成
+  * 環境構築後にTPMへの最初のアクセスとしてTPMを用いた乱数生成を行います
+  * 使用するコマンドは tpm2_getrandomです
+*  使用ライブラリ
+   * プログラム実行時にインストールされます
     ```
 	autoconf
 	autoconf-archive
@@ -37,14 +45,9 @@
 	libltdl-dev
 	python-yaml
 	```
-* TPMを用いた乱数の生成
-  * 環境構築後にTPMへの最初のアクセスとしてTPMを用いた乱数生成を行います
-  * 使用するコマンドは tpm2_getrandomです
 
 
-## よりTPMについて知りたい方へ
-* TPMの解説
-	* https://link.springer.com/book/10.1007/978-1-4302-6584-9
+##
 
 # 実行環境
 * TPM2.0を搭載したPC
@@ -92,6 +95,10 @@ cd build
 * Trusted Platform Module (TPM) is a chip on the motherboard physically (or logically inside Processor), providing several functions for Security features.
 * It provides various security functions, such as cypher, hash function, several key managements in secure way, and more, to establish trustworthy platform environment.
 
+### For more technical details, visit following Web site to get reference information.
+  * A Practical Guide to TPM 2.0” by Will Arthur, David Challener, Kenneth Goldman
+  * https://link.springer.com/book/10.1007/978-1-4302-6584-9
+
 ## Features provided by this project modules
 * Building the TPM2.0 environment
   * Use tpm2-tss and tpm2-tools to build the environment
@@ -100,9 +107,6 @@ cd build
 * Random number generation using TPM
   * Here describes Random Number generation using TPM as one sample after environment setup.
   * It uses TPM Command “tpm2_getrandom” defined in TPM2.0 specification.
-* For more technical details, visit following Web site to get reference information.
-  * A Practical Guide to TPM 2.0” by Will Arthur, David Challener, Kenneth Goldman
-  * https://link.springer.com/book/10.1007/978-1-4302-6584-9
 * Required Libraries
 ```
 autoconf
