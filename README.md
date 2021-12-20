@@ -108,6 +108,7 @@ cd build
   * Here describes Random Number generation using TPM as one sample after environment setup.
   * It uses TPM Command “tpm2_getrandom” defined in TPM2.0 specification.
 * Required Libraries
+	* To be installed at program runtime
 ```
 autoconf
 autoconf-archive
