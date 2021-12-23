@@ -41,7 +41,7 @@ install_tss:
 	@echo [install TPM2-TSS]
 	sleep 1
 	rm -rf tpm2-tss
-	git clone https://github.com/tpm2-software/tpm2-tss.git >/dev/null
+	git clone https://github.com/tpm2-software/tpm2-tss.git
 	cd tpm2-tss; \
 	./bootstrap; \
 	./configure --prefix=/usr; \
